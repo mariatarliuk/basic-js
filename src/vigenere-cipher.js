@@ -1,7 +1,7 @@
 const CustomError = require("../extensions/custom-error");
 
 class VigenereCipheringMachine {
-   constructor (boolean) {
+   constructor (boolean=true) {
       this.direction = boolean;
    }
    encrypt(str,key) {
@@ -29,6 +29,7 @@ class VigenereCipheringMachine {
           keyStr = keyStr.join('')
       }
       }
+      if(!this.direction) return result.split('').reverse().join('').toUpperCase()
          return result.toUpperCase()
 
    }
@@ -37,6 +38,7 @@ class VigenereCipheringMachine {
       if(str===undefined || key===undefined) {
          throw new Error('Not enough arguments!') 
       }
+
       let keyStr = '';
       let result = '';
       let alphabet = 'abcdefghijklmnopqrstuvwxyz';
@@ -58,7 +60,7 @@ class VigenereCipheringMachine {
           keyStr = keyStr.join('')
       }
       }
-
+      if(!this.direction) return result.split('').reverse().join('').toUpperCase()
          return result.toUpperCase()
 
    }
